@@ -145,15 +145,61 @@ int main(void)
                 exit(1);
             }
             buf[numbytes] = '\0';
-           
-            printf("%s\n", buf);
+            char dataToSent[numbytes]; 
 
-            //snprintf(data, sizeof data, "%s %s %s %s", headers, html,buf,html2);
+            if (numbytes > 5)
+            {
+                if (buf[0] == 'G' && buf[1] == 'E' && buf[2] == 'T' && buf[3] == ' ' && buf[4] == '/')
+                {
+                    for (int i = 0; i < numbytes; ++i)
+                    {
+                     if (buf[i+5]!=' ')
+                     {
+                        dataToSent[i] = buf[i+5];
+                     }
+                
+                    }
 
-            if (send(new_fd, buf, strlen(buf), 0) == -1)
-                perror("send");
-            close(new_fd);
-            exit(0);
+                    printf("%s\n", buf);
+
+                    snprintf(data, sizeof data, "%s %s %s %s", headers, html,dataToSent,html2);
+
+                    if (send(new_fd, data, strlen(data), 0) == -1)
+                        perror("send");
+                    close(new_fd);
+                    exit(0);
+
+                }
+
+                else {
+
+                    printf("%s\n", buf);
+
+                    snprintf(data, sizeof data, "%s",buf);
+
+                    if (send(new_fd, data, strlen(data), 0) == -1)
+                        perror("send");
+                    close(new_fd);
+                    exit(0);
+                }
+
+            }
+
+            else {
+
+                printf("%s\n", buf);
+
+                snprintf(data, sizeof data, "%s",buf);
+
+                if (send(new_fd, data, strlen(data), 0) == -1)
+                    perror("send");
+                close(new_fd);
+                exit(0);
+
+            }
+
+            
+            
         }
         close(new_fd);  // parent doesn't need this
     }
