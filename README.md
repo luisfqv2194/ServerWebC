@@ -9,4 +9,20 @@ Se trata de 4 servidores implementados cada uno de diferente manera:
 
 ## Compilación ##
 
-# 
+### Servidor FIFO ###
+
+### Servidor Fork ###
+Acceder, mediante la consola de linux, a la carpeta FORKserver y digitar el siguiente código de compilación:
+
+>gcc -o server server.c
+
+Y para correr basta con escribir:
+
+>./server
+
+
+
+
+### Servidor Thread ###
+
+### Servidor Pre-Thread ###
