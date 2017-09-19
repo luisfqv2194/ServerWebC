@@ -20,6 +20,8 @@ Y para correr basta con escribir:
 
 >./server
 
+**NOTA: El servidor corre en el puerto 7001.**
+
 
 
 
@@ -35,3 +37,7 @@ Acceder, mediante la consola de linux, a la carpeta Client y digitar el siguient
 Y para correr basta con escribir:
 
 >./client [IP] [PUERTO] [nombre_archivo]
+
+**[IP] = IP de la máquina donde corre el servidor**
+**[PUERTO] = PUERTO del servidor**
+**[nombre_archivo] = Nombre del archivo que se desea utilizar**
