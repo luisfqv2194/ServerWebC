@@ -47,6 +47,6 @@ Y para correr basta con escribir:
 
 >./client [IP] [PUERTO] [nombre_archivo]
 
-**[IP] = IP de la máquina donde corre el servidor**
-**[PUERTO] = PUERTO del servidor**
+**[IP] = IP de la máquina donde corre el servidor,**
+**[PUERTO] = PUERTO del servidor,**
 **[nombre_archivo] = Nombre del archivo que se desea utilizar**
