@@ -26,6 +26,15 @@ Y para correr basta con escribir:
 
 
 ### Servidor Thread ###
+Acceder, mediante la consola de linux, a la carpeta FORKserver y digitar el siguiente código de compilación:
+
+>gcc -o server server.c -pthread
+
+Y para correr basta con escribir:
+
+>./server
+
+**NOTA: El servidor corre en el puerto 7003.**
 
 ### Servidor Pre-Thread ###
 
