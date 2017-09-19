@@ -26,3 +26,12 @@ Y para correr basta con escribir:
 ### Servidor Thread ###
 
 ### Servidor Pre-Thread ###
+
+### Cliente ###
+Acceder, mediante la consola de linux, a la carpeta Client y digitar el siguiente código de compilación:
+
+>gcc -o client client.c -pthread
+
+Y para correr basta con escribir:
+
+>./client [IP] [PUERTO] [nombre_archivo]
