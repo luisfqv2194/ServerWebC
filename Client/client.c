@@ -3,14 +3,13 @@
 #include<stdlib.h>    //strlen
 #include<sys/socket.h>
 #include<arpa/inet.h> //inet_addr
-#include<unistd.h>    //write
- 
+#include<unistd.h> 
 #include<pthread.h> //for threading , link with lpthread
 
 char *ptrIP;
-char *auxptrIP;
-char *auxptrPort;
-char *auxptrImg;
+char *IPDir;
+char *serverPort;
+char *files;
 void *ejecutarHilo(void *);
 
 int main(int argc , char *argv[])
@@ -21,64 +20,50 @@ int main(int argc , char *argv[])
 	int valorHilo;
     
     //aca es donde se solicitan los argumentos por es stdio
-    puts("Ingresa los datos del servidor al que deseas conectarte:\n");
-    scanf("%s",pIP);
+   // puts("Ingresa los datos del servidor al que deseas conectarte:\n");
+   // scanf("%s",pIP);
     
     
-    ptrIP=&pIP[7];
-    auxptrIP=ptrIP;
-    while(*ptrIP != 58){
+    //ptrIP=argv[1];
+    IPDir=argv[1];
+    /*while(*ptrIP != 58){
             ptrIP++;
     }
     (*ptrIP)='\0';
-    //entonces la IP esta dada desde auxptrIP hasta el primer limite
-    ptrIP++;
-    auxptrPort=ptrIP;
-    while(*ptrIP != 47){
+    //entonces la IP esta dada desde IPDir hasta el primer limite
+    ptrIP++;*/
+    serverPort=argv[2];
+    /*while(*ptrIP != 47){
             ptrIP++;
     }
     (*ptrIP)='\0';
-    //entonces el puerto esta dado desde el nuevo auxptrPort hasta el nuevo limite
+    //entonces el puerto esta dado desde el nuevo serverPort hasta el nuevo limite
     ptrIP++;
-    auxptrImg=ptrIP;
+    files=ptrIP;*/
 
 	puts("IP");
-	puts(auxptrIP);
+	puts(IPDir);
 	puts("Puerto");
-	puts(auxptrPort);
+	puts(serverPort);
+    files = argv[3];
 
-    //Desde aqui se debe ir sacando el nombre de las imagenes
-    while(*ptrIP != '\0'){
-        if(*ptrIP == 44){
-            *ptrIP='\0';
-            //Aqui ya encontre un limite para la imagen, entonces crear hilo
-            copiaMalloc=(char*)malloc(1);
-            strncpy(copiaMalloc,auxptrImg,strlen(auxptrImg));
-            
-            //se crea el hilo y se le manda el parametro
-		puts("nombre de la imagen encontrada");
-		puts(copiaMalloc);
-            pthread_create( &hiloActual , NULL ,  ejecutarHilo , (void*) copiaMalloc);
-            
-            //cierre de malloc y demas
-            auxptrImg=ptrIP+1;
-        }
+    char* token = strtok(files,",");
+    //Desde aqui se debe ir sacando el nombre de los archivos.
+    while(token!=NULL){
         
-        ptrIP++;
-        
+        copiaMalloc=(char*)malloc(1);
+        strncpy(copiaMalloc,token,strlen(token));
+        puts("Nombre del archivo a utilizar");
+        puts(copiaMalloc);
+        valorHilo=pthread_create( &hiloActual , NULL ,  ejecutarHilo , (void*) copiaMalloc);
+        printf("%d",valorHilo);
+        fflush(stdout);
+        sleep(20);
+        token = strtok(NULL,",");
         
     }
-    //Aqui se debe crear otro hilo para el nombre de la ultima img
-    copiaMalloc=(char*)malloc(1);
-    strncpy(copiaMalloc,auxptrImg,strlen(auxptrImg));
-	puts("Ultima Imagen reconocida");
-	puts(copiaMalloc);
-    valorHilo=pthread_create( &hiloActual , NULL ,  ejecutarHilo , (void*) copiaMalloc);
-	printf("%d",valorHilo);
-	fflush(stdout);
-    sleep(20);
     
-    }
+}
     
 void *ejecutarHilo(void *nombreImg){
 	puts("Ejecutando Hilo con\n ");
@@ -96,9 +81,9 @@ void *ejecutarHilo(void *nombreImg){
     {
         printf("Could not create socket");
     }
-    valor = atoi(auxptrPort);
+    valor = atoi(serverPort);
 
-    server.sin_addr.s_addr = inet_addr(auxptrIP);
+    server.sin_addr.s_addr = inet_addr(IPDir);
     server.sin_family = AF_INET;
     server.sin_port = htons( valor );
     

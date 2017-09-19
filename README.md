@@ -45,8 +45,14 @@ Acceder, mediante la consola de linux, a la carpeta Client y digitar el siguient
 
 Y para correr basta con escribir:
 
->./client [IP] [PUERTO] [nombre_archivo]
+>./client [IP] [PUERTO] [nombre_archivos]
 
-**[IP] = IP de la máquina donde corre el servidor,**
-**[PUERTO] = PUERTO del servidor,**
-**[nombre_archivo] = Nombre del archivo que se desea utilizar**
+Ejemplo 1:
+
+>./client 127.0.0.1 7001 ejemplo.txt
+
+Ejemplo 2:
+
+>./client 127.0.0.1 7004 ejemplo.txt,ejemplo2.txt
+
+**[nombre_archivos] = Nombre de los archivos que se desean utilizar, estos deben ir separados por comas**
