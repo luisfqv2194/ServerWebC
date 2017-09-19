@@ -79,7 +79,7 @@ void * sendDataToBrowser(char headers[], char contentTypeText[], char html[],
 }
 
 
-int openFile(char fileName[], int  child) {
+int openFile(char fileName[], int  child, int tipo) {
     char path[2000] = {0};
     char *data;
     int data_size, fd;
@@ -96,24 +96,34 @@ int openFile(char fileName[], int  child) {
     {
         printf("Error abriendo el archivo o no existe\n");
 
-        // Cantidad de espacio necesario para desplegar el buffer,
-        // son 42 por los 4 simbolos terminales y 38 del mensaje.
-        data_size = (42 + strlen(headers) + strlen(contentTypeText)
-            + strlen(html) + strlen(html2)) * sizeof(char);;
+        if (tipo == 1) //Si es para el browser
+        {
+         
+            // Cantidad de espacio necesario para desplegar el buffer,
+            // son 42 por los 4 simbolos terminales y 38 del mensaje.
+            data_size = (42 + strlen(headers) + strlen(contentTypeText)
+                + strlen(html) + strlen(html2)) * sizeof(char);;
 
-        // Reservo el espacio suficiente para almacenar el buffer 
-        // junto con los headers del HTML mostrar en el Browser.    
-        data = malloc(data_size);
+            // Reservo el espacio suficiente para almacenar el buffer 
+            // junto con los headers del HTML mostrar en el Browser.    
+            data = malloc(data_size);
 
-        // Envio la información al Browser.
-        sendDataToBrowser(headers, contentTypeText, html, 
-            "No existe el archivo en el server FORK", data, html2, 
-            child, data_size);
+            // Envio la información al Browser.
+            sendDataToBrowser(headers, contentTypeText, html, 
+                "No existe el archivo en el server FORK", data, html2, 
+                child, data_size);
                         
-        close(child);
-        free(data);
-        free(fileName);
-        exit(0);
+            close(child);
+            free(data);
+            free(fileName);
+            exit(0);
+
+        }
+
+        else
+        {
+            /*Codigo de cliente TODO */
+        }
 
         
     }
@@ -259,7 +269,7 @@ int main(void)
                         }
                     }
 
-                    fd = openFile(fileName, child);
+                    fd = openFile(fileName, child, 1);
                     free(fileName);
 
                     // Obtiene el tamaño del archivo
