@@ -295,12 +295,13 @@ int main(void)
 
                     // Envio la información al Browser.
                     sendDataToBrowser(headers, contentTypeText, html,
-                        datatoBrowser, data, html2,  child, data_size);
+                        datatoBrowser, data, html2, child, data_size);
                         
                     // Cierro el hijo, libero memoria y termino el proceso en exito.
-                    close( child);
                     free(datatoBrowser);
                     free(data);
+                    close(fd);
+                    close(child);
                     exit(0);
 
                 }
@@ -311,7 +312,7 @@ int main(void)
 
                     snprintf(data, sizeof data, "%s",buf);
 
-                    if (send( child, data, strlen(data), 0) == -1)
+                    if (send(child, data, strlen(data), 0) == -1)
                         perror("send");
                     close( child);
                     exit(0);
