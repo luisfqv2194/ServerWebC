@@ -24,6 +24,16 @@ Y para correr basta con escribir:
 
 
 
+### Servidor Pre-Thread ###
+Acceder, mediante la consola de linux, a la carpeta THREADserver y digitar el siguiente código de compilación:
+
+>gcc -o server server.c -pthread
+
+Y para correr basta con escribir:
+
+>./server [cantidad_de_hilos]
+
+**NOTA: El servidor corre en el puerto 7002.**
 
 ### Servidor Thread ###
 Acceder, mediante la consola de linux, a la carpeta THREADserver y digitar el siguiente código de compilación:
@@ -35,8 +45,6 @@ Y para correr basta con escribir:
 >./server
 
 **NOTA: El servidor corre en el puerto 7003.**
-
-### Servidor Pre-Thread ###
 
 ### Cliente ###
 Acceder, mediante la consola de linux, a la carpeta Client y digitar el siguiente código de compilación:
