@@ -6,7 +6,6 @@
 #include<unistd.h> 
 #include<pthread.h> //for threading , link with lpthread
 
-char *ptrIP;
 char *IPDir;
 char *serverPort;
 char *files;
@@ -19,27 +18,10 @@ int main(int argc , char *argv[])
     pthread_t hiloActual;
 	int valorHilo;
     
-    //aca es donde se solicitan los argumentos por es stdio
-   // puts("Ingresa los datos del servidor al que deseas conectarte:\n");
-   // scanf("%s",pIP);
-    
-    
-    //ptrIP=argv[1];
     IPDir=argv[1];
-    /*while(*ptrIP != 58){
-            ptrIP++;
-    }
-    (*ptrIP)='\0';
-    //entonces la IP esta dada desde IPDir hasta el primer limite
-    ptrIP++;*/
+    
     serverPort=argv[2];
-    /*while(*ptrIP != 47){
-            ptrIP++;
-    }
-    (*ptrIP)='\0';
-    //entonces el puerto esta dado desde el nuevo serverPort hasta el nuevo limite
-    ptrIP++;
-    files=ptrIP;*/
+    
 
 	puts("IP");
 	puts(IPDir);
@@ -65,15 +47,15 @@ int main(int argc , char *argv[])
     
 }
     
-void *ejecutarHilo(void *nombreImg){
+void *ejecutarHilo(void *fileName){
 	puts("Ejecutando Hilo con\n ");
 	
     int socket_desc,valor,tamanoreciv;
     struct sockaddr_in server;
-    char *message, server_reply[5000000],buf[50],pNombreImagen[30],*ptrserver_reply,*parametroImagen;
+    char *message, server_reply[5000000],buf[50],pfileName[30],*ptrserver_reply,*parametroFile;
     char *salvar="Recuperada";
-    parametroImagen=(char*)nombreImg;
-    puts(parametroImagen);
+    parametroFile=(char*)fileName;
+    puts(parametroFile);
     
     //Create socket
     socket_desc = socket(AF_INET , SOCK_STREAM , 0);
@@ -99,7 +81,7 @@ void *ejecutarHilo(void *nombreImg){
     //Send some data
     //se debe enviar el mensaje con la estructura del browser
     message = "GET /";
-    snprintf(buf, sizeof buf, "%s%s%s", message, parametroImagen," ");
+    snprintf(buf, sizeof buf, "%s%s%s", message, parametroFile," ");
     puts(buf);
     
     if( send(socket_desc , buf , sizeof(buf) , 0) < 0)
@@ -117,10 +99,10 @@ void *ejecutarHilo(void *nombreImg){
     ptrserver_reply = &server_reply[75];
     
     //concatenar el nombre de la imagen solicitada
-    snprintf(pNombreImagen, sizeof pNombreImagen, "%s", parametroImagen);
+    snprintf(pfileName, sizeof pfileName, "%s", parametroFile);
     
     FILE *f;
-    f = fopen(pNombreImagen,"w");
+    f = fopen(pfileName,"w");
     fwrite(ptrserver_reply,tamanoreciv-75,1,f);
     fclose(f);
     

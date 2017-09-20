@@ -26,7 +26,7 @@ Y para correr basta con escribir:
 
 
 ### Servidor Thread ###
-Acceder, mediante la consola de linux, a la carpeta FORKserver y digitar el siguiente código de compilación:
+Acceder, mediante la consola de linux, a la carpeta THREADserver y digitar el siguiente código de compilación:
 
 >gcc -o server server.c -pthread
 
