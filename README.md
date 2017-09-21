@@ -1,15 +1,22 @@
 # ServerWebC
 
+### Miembros del equipo ###
+
+Luis Quirós - 201237264
+
+Ivan Calvo - 
+
+
 # Table of Contents
-1. [Example](#example)
-2. [Example2](#example2)
-3. [Third Example](#third-example)
-4. [Análisis de resultados del programa](#análisis-de-resultados-del-programa)
+1. [¿Qué es este proyecto?](#qué-es-este-proyecto)
+2. [Análisis de resultados del programa](#análisis-de-resultados-del-programa)
+3. [Casos de Prueba](#casos-de-prueba)
+4. [Lecciones Aprendidas](#lecciones-aprendidas)
+5. [Compilación](#compilación)
+6. [Conclusiones](#conclusiones)
+  
 
-## Example
-## Example2
-## Third Example
-
+## ¿Qué es este proyecto?
 Se trata de 4 servidores implementados cada uno de diferente manera:
 
 * __FIFO__: La idea es que el servidor esté oyendo en uno de los puertos y vaya atendiendo las peticiones conforme van llegando. Existe un solo proceso secuencial, ninguna acción se ejecuta en paralelo. De manera que el servidor irá atendiendo las peticiones una por una.
