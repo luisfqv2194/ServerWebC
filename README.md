@@ -10,12 +10,13 @@ Se trata de 4 servidores implementados cada uno de diferente manera:
 ## Análisis de resultados del programa ##
 
 ### ¿Qué sirve? ###
+
 |         |		 txt      | html          | jpg   | png |
-| Servers | ------------- |:-------------:| -----:| -------- |
-|  FIFO   | col 3 is      | right-aligned | $1600 | |
-|  FORK   | col 2 is      | centered      |   $12 | |
-|  PRE THREAD | zebra stripes | are neat      |    $1 | |
-|  THREAD | zebra stripes | are neat      |    $1 | |
+| Servers | ------------- | ------------- | ----- | -------- |
+|  FIFO   | col 3 is      | right-aligned | $1600 | sdfsd |
+|  FORK   | col 2 is      | centered      |   $12 | sdfsd |
+| PRE THREAD | zebra stripes | are neat  |    $1 | fsdfsd |
+|  THREAD | zebra stripes | are neat      |    $1 | sdfsdfs |
 
 ### ¿Qué no sirve? ###
 
