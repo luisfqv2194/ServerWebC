@@ -7,7 +7,7 @@ Luis Quirós - 201237264
 Ivan Calvo - 
 
 
-# Table of Contents
+# Índice
 1. [¿Qué es este proyecto?](#qué-es-este-proyecto)
 2. [Análisis de resultados del programa](#análisis-de-resultados-del-programa)
 3. [Casos de Prueba](#casos-de-prueba)
