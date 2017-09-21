@@ -29,40 +29,6 @@ Se trata de 4 servidores implementados cada uno de diferente manera:
 
 ## Análisis de resultados del programa ##
 
-### ¿Qué sirve? ###
-
-#### Browser (Chrome, FireFox o Safari) ####
-
-| Servers  | txt      |    html       | png  | jpg |
-| :------: | :------: | :-----------: | :--: |:--: |
-| FIFO | X   | X  | X | X |
-| FORK | X   | X  | X | X |
-| PRE_THREAD | X   | X  | X | X |
-| THREAD | X   | X  | X | X |
-
-#### Cliente ####
-
-| Servers  | txt      |    html       | png  | jpg |
-| :------: | :------: | :-----------: | :--: |:--: |
-| FIFO | X   | X  |  | X* |
-| FORK | X   | X  |  | X* |
-| PRE_THREAD | X   | X  |  | X* |
-| THREAD | X   | X  |  | X* |
-
-### ¿Qué no sirve? ###
-#### Cliente ####
-
-| Servers  | txt      |    html       | png  | jpg |
-| :------: | :------: | :-----------: | :--: |:--: |
-| FIFO |    |   | X | X* |
-| FORK |    |   | X | X* |
-| PRE_THREAD |    |   | X | X* |
-| THREAD |    |   | X | X* |
-
-**NOTA: El "*" significa que dicho tipo de archivo falla o funciona dependiendo de su tamaño**
-
-## Casos de Prueba ##
-
 ### Servidor Fifo ###
 | Característica  | Estado      |    Descripción       |
 | :------ | :------: | :----------- |
@@ -109,6 +75,43 @@ Se trata de 4 servidores implementados cada uno de diferente manera:
 | Múltiples envíos de archivos | A   | Los archivos son enviados con éxito   |
 | Envio de un request | A   |Recibe exitosamente las peticiones del cliente |
 | Capacidad de salvar en disco la respuesta |  C  | Presenta problemas con archivos .png y .jpg grandes   |
+
+
+## Casos de Prueba ##
+
+### Servidor Fifo ###
+
+#### TC-Fifo 01 ####
+| Inputs  | Resultados Esperados      |    Resultados Obtenidos       |
+| :------ | :------: | :----------- |
+| ./cliente 127.0.0.1 7000 html1.html | Archivo html1.html es guardado en la carpeta del Cliente    | Archivo html1.html es guardado en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7000 texto1.txt | Archivo texto1.txt es guardado en la carpeta del Cliente    | Archivo texto1.txt es guardado en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7000 img1.jpg | Archivo img1.jpg es guardado en la carpeta del Cliente    | No todo el archivo img1.jpg es guardado en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7000 img4.jpg | Archivo img4.jpg es guardado en la carpeta del Cliente    | Archivo img4.jpg es guardado en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7000 texto1.txt | Archivo texto1.txt es guardado en la carpeta del Cliente    | Archivo texto1.txt es guardado en la carpeta del Cliente   |
+
+#### TC-Fifo 02 ####
+#### TC-Fifo 03 ####
+
+### Servidor Fork ###
+
+#### TC-Fork 01 ####
+#### TC-Fork 02 ####
+#### TC-Fork 03 ####
+
+### Servidor Pre-Thread ###
+
+#### TC-Pre-Thread 01 ####
+#### TC-Pre-Thread 02 ####
+#### TC-Pre-Thread 03 ####
+
+### Servidor Thread ###
+
+#### TC-Thread 01 ####
+#### TC-Thread 02 ####
+#### TC-Thread 03 ####
+
+### Cliente ###
 
 
 ## Lecciones Aprendidas  ##
