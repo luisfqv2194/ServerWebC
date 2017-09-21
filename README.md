@@ -81,37 +81,96 @@ Se trata de 4 servidores implementados cada uno de diferente manera:
 
 ### Servidor Fifo ###
 
-#### TC-Fifo 01 ####
+#### TC-Fifo Cliente ####
 | Inputs  | Resultados Esperados      |    Resultados Obtenidos       |
 | :------ | :------: | :----------- |
 | ./cliente 127.0.0.1 7000 html1.html | Archivo html1.html es guardado en la carpeta del Cliente    | Archivo html1.html es guardado en la carpeta del Cliente   |
 | ./cliente 127.0.0.1 7000 texto1.txt | Archivo texto1.txt es guardado en la carpeta del Cliente    | Archivo texto1.txt es guardado en la carpeta del Cliente   |
 | ./cliente 127.0.0.1 7000 img1.jpg | Archivo img1.jpg es guardado en la carpeta del Cliente    | No todo el archivo img1.jpg es guardado en la carpeta del Cliente   |
 | ./cliente 127.0.0.1 7000 img4.jpg | Archivo img4.jpg es guardado en la carpeta del Cliente    | Archivo img4.jpg es guardado en la carpeta del Cliente   |
-| ./cliente 127.0.0.1 7000 texto1.txt | Archivo texto1.txt es guardado en la carpeta del Cliente    | Archivo texto1.txt es guardado en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7000 img1.png | Archivo img1.png es guardado en la carpeta del Cliente    | El archivo img1.png no es guardado correctamente en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7000 img122.jpg | Archivo img122.jpg es guardado pero con una imagen de "File Not Found" en la carpeta del Cliente    | Archivo img122.jpg es guardado pero con una imagen de "File Not Found" en la carpeta del Cliente |
+| ./cliente 127.0.0.1 7000 html1.html,texto1.txt | Archivos html1.html y texto1.txt son guardados en la carpeta del Cliente    | Archivos html1.html y texto1.txt son guardados en la carpeta del Cliente |
 
-#### TC-Fifo 02 ####
-#### TC-Fifo 03 ####
+#### TC-Fifo Browser ####
+| Inputs  | Resultados Esperados      |    Resultados Obtenidos       |
+| :------ | :------: | :----------- |
+| localhost:7000/html1.html | Archivo html1.html es mostrado en el Browser    | Archivo html1.html es mostrado en el Browser   |
+| localhost:7000/texto1.txt | Archivo texto1.txt es mostrado en el Browser    | Archivo texto1.txt es mostrado en el Browser   |
+| localhost:7000/img1.jpg | Archivo img1.jpg es mostrado en el Browser    | Archivo img1.jpg es mostrado en el Browser   |
+| localhost:7000/img4.jpg | Archivo img4.jpg es mostrado en el Browser    | Archivo img4.jpg es mostrado en el Browser   |
+| localhost:7000/img1.png | Archivo img1.png es mostrado en el Browser    | Archivo img1.png es mostrado en el Browser |
+| localhost:7000/img122.jpg | Se muestra una imagen de "File Not Found"  | Se muestra una imagen de "File Not Found" |
+
 
 ### Servidor Fork ###
+#### TC-Fork Cliente ####
+| Inputs  | Resultados Esperados      |    Resultados Obtenidos       |
+| :------ | :------: | :----------- |
+| ./cliente 127.0.0.1 7000 html1.html | Archivo html1.html es guardado en la carpeta del Cliente    | Archivo html1.html es guardado en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7000 texto1.txt | Archivo texto1.txt es guardado en la carpeta del Cliente    | Archivo texto1.txt es guardado en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7000 img1.jpg | Archivo img1.jpg es guardado en la carpeta del Cliente    | No todo el archivo img1.jpg es guardado en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7000 img4.jpg | Archivo img4.jpg es guardado en la carpeta del Cliente    | Archivo img4.jpg es guardado en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7000 img1.png | Archivo img1.png es guardado en la carpeta del Cliente    | El archivo img1.png no es guardado correctamente en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7000 img122.jpg | Archivo img122.jpg es guardado pero con una imagen de "File Not Found" en la carpeta del Cliente    | Archivo img122.jpg es guardado pero con una imagen de "File Not Found" en la carpeta del Cliente |
+| ./cliente 127.0.0.1 7000 html1.html,texto1.txt | Archivos html1.html y texto1.txt son guardados en la carpeta del Cliente    | Archivos html1.html y texto1.txt son guardados en la carpeta del Cliente |
 
-#### TC-Fork 01 ####
-#### TC-Fork 02 ####
-#### TC-Fork 03 ####
+#### TC-Fork Browser ####
+| Inputs  | Resultados Esperados      |    Resultados Obtenidos       |
+| :------ | :------: | :----------- |
+| localhost:7000/html1.html | Archivo html1.html es mostrado en el Browser    | Archivo html1.html es mostrado en el Browser   |
+| localhost:7000/texto1.txt | Archivo texto1.txt es mostrado en el Browser    | Archivo texto1.txt es mostrado en el Browser   |
+| localhost:7000/img1.jpg | Archivo img1.jpg es mostrado en el Browser    | Archivo img1.jpg es mostrado en el Browser   |
+| localhost:7000/img4.jpg | Archivo img4.jpg es mostrado en el Browser    | Archivo img4.jpg es mostrado en el Browser   |
+| localhost:7000/img1.png | Archivo img1.png es mostrado en el Browser    | Archivo img1.png es mostrado en el Browser |
+| localhost:7000/img122.jpg | Se muestra una imagen de "File Not Found"  | Se muestra una imagen de "File Not Found" |
+
 
 ### Servidor Pre-Thread ###
+#### TC-Pre_Thread Cliente ####
+| Inputs  | Resultados Esperados      |    Resultados Obtenidos       |
+| :------ | :------: | :----------- |
+| ./cliente 127.0.0.1 7000 html1.html | Archivo html1.html es guardado en la carpeta del Cliente    | Archivo html1.html es guardado en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7000 texto1.txt | Archivo texto1.txt es guardado en la carpeta del Cliente    | Archivo texto1.txt es guardado en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7000 img1.jpg | Archivo img1.jpg es guardado en la carpeta del Cliente    | No todo el archivo img1.jpg es guardado en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7000 img4.jpg | Archivo img4.jpg es guardado en la carpeta del Cliente    | Archivo img4.jpg es guardado en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7000 img1.png | Archivo img1.png es guardado en la carpeta del Cliente    | El archivo img1.png no es guardado correctamente en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7000 img122.jpg | Archivo img122.jpg es guardado pero con una imagen de "File Not Found" en la carpeta del Cliente    | Archivo img122.jpg es guardado pero con una imagen de "File Not Found" en la carpeta del Cliente |
+| ./cliente 127.0.0.1 7000 html1.html,texto1.txt | Archivos html1.html y texto1.txt son guardados en la carpeta del Cliente    | Archivos html1.html y texto1.txt son guardados en la carpeta del Cliente |
 
-#### TC-Pre-Thread 01 ####
-#### TC-Pre-Thread 02 ####
-#### TC-Pre-Thread 03 ####
+#### TC-Pre_Thread Browser ####
+| Inputs  | Resultados Esperados      |    Resultados Obtenidos       |
+| :------ | :------: | :----------- |
+| localhost:7000/html1.html | Archivo html1.html es mostrado en el Browser    | Archivo html1.html es mostrado en el Browser   |
+| localhost:7000/texto1.txt | Archivo texto1.txt es mostrado en el Browser    | Archivo texto1.txt es mostrado en el Browser   |
+| localhost:7000/img1.jpg | Archivo img1.jpg es mostrado en el Browser    | Archivo img1.jpg es mostrado en el Browser   |
+| localhost:7000/img4.jpg | Archivo img4.jpg es mostrado en el Browser    | Archivo img4.jpg es mostrado en el Browser   |
+| localhost:7000/img1.png | Archivo img1.png es mostrado en el Browser    | Archivo img1.png es mostrado en el Browser |
+| localhost:7000/img122.jpg | Se muestra una imagen de "File Not Found"  | Se muestra una imagen de "File Not Found" |
+
 
 ### Servidor Thread ###
+#### TC-Thread Cliente ####
+| Inputs  | Resultados Esperados      |    Resultados Obtenidos       |
+| :------ | :------: | :----------- |
+| ./cliente 127.0.0.1 7000 html1.html | Archivo html1.html es guardado en la carpeta del Cliente    | Archivo html1.html es guardado en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7000 texto1.txt | Archivo texto1.txt es guardado en la carpeta del Cliente    | Archivo texto1.txt es guardado en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7000 img1.jpg | Archivo img1.jpg es guardado en la carpeta del Cliente    | No todo el archivo img1.jpg es guardado en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7000 img4.jpg | Archivo img4.jpg es guardado en la carpeta del Cliente    | Archivo img4.jpg es guardado en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7000 img1.png | Archivo img1.png es guardado en la carpeta del Cliente    | El archivo img1.png no es guardado correctamente en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7000 img122.jpg | Archivo img122.jpg es guardado pero con una imagen de "File Not Found" en la carpeta del Cliente    | Archivo img122.jpg es guardado pero con una imagen de "File Not Found" en la carpeta del Cliente |
+| ./cliente 127.0.0.1 7000 html1.html,texto1.txt | Archivos html1.html y texto1.txt son guardados en la carpeta del Cliente    | Archivos html1.html y texto1.txt son guardados en la carpeta del Cliente |
 
-#### TC-Thread 01 ####
-#### TC-Thread 02 ####
-#### TC-Thread 03 ####
+#### TC-Thread Browser ####
+| Inputs  | Resultados Esperados      |    Resultados Obtenidos       |
+| :------ | :------: | :----------- |
+| localhost:7000/html1.html | Archivo html1.html es mostrado en el Browser    | Archivo html1.html es mostrado en el Browser   |
+| localhost:7000/texto1.txt | Archivo texto1.txt es mostrado en el Browser    | Archivo texto1.txt es mostrado en el Browser   |
+| localhost:7000/img1.jpg | Archivo img1.jpg es mostrado en el Browser    | Archivo img1.jpg es mostrado en el Browser   |
+| localhost:7000/img4.jpg | Archivo img4.jpg es mostrado en el Browser    | Archivo img4.jpg es mostrado en el Browser   |
+| localhost:7000/img1.png | Archivo img1.png es mostrado en el Browser    | Archivo img1.png es mostrado en el Browser |
+| localhost:7000/img122.jpg | Se muestra una imagen de "File Not Found"  | Se muestra una imagen de "File Not Found" |
 
-### Cliente ###
 
 
 ## Lecciones Aprendidas  ##
