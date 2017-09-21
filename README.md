@@ -64,18 +64,52 @@ Se trata de 4 servidores implementados cada uno de diferente manera:
 ## Casos de Prueba ##
 
 ### Servidor Fifo ###
-
+| Característica  | Estado      |    Descripción       |
+| :------ | :------: | :----------- |
+| Levantamiento del Servidor | A    |Se logra crear el servidor el cuál espera por peticiones   |
+| Atención de las peticiones Cliente | A   |Recibe exitosamente las peticiones del cliente   |
+| Atención de las peticiones del Browser |  A  |Recibe exitosamente las peticiones del Browser   |
+| Manejo de Excepciones de request inválidos |  A  |El servidor es capaz de presentarle al cliente una imagen default al solicitarle una imagen que no existe   |
+| Respuesta del Server |  A  |Despliega la imagen solicitada de forma correcta en el browser   |
 
 ### Servidor Fork ###
-
+| Característica  | Estado      |    Descripción       |
+| :------ | :------: | :----------- |
+| Levantamiento del Servidor | A    |Se logra crear el servidor el cuál espera por peticiones   |
+| Atención de las peticiones Cliente | A   |Recibe exitosamente las peticiones del cliente   |
+| Atención de las peticiones del Browser |  A  |Recibe exitosamente las peticiones del Browser   |
+| Manejo de Excepciones de request inválidos |  A  |El servidor es capaz de presentarle al cliente una imagen default al solicitarle una imagen que no existe   |
+| Respuesta del Server |  A  |Despliega la imagen solicitada de forma correcta en el browser   |
 
 ### Servidor Pre-Thread ###
+| Característica  | Estado      |    Descripción       |
+| :------ | :------: | :----------- |
+| Levantamiento del Servidor | A    |Se logra crear el servidor el cuál espera por peticiones   |
+| Atención de las peticiones Cliente | A   |Recibe exitosamente las peticiones del cliente   |
+| Atención de las peticiones del Browser |  A  |Recibe exitosamente las peticiones del Browser   |
+| Manejo de Excepciones de request inválidos |  A  |El servidor es capaz de presentarle al cliente una imagen default al solicitarle una imagen que no existe   |
+| Respuesta del Server |  A  |Despliega la imagen solicitada de forma correcta en el browser   |
 
 
 ### Servidor Thread ###
+| Característica  | Estado      |    Descripción       |
+| :------ | :------: | :----------- |
+| Levantamiento del Servidor | A    |Se logra crear el servidor el cuál espera por peticiones   |
+| Atención de las peticiones Cliente | A   |Recibe exitosamente las peticiones del cliente   |
+| Atención de las peticiones del Browser |  A  |Recibe exitosamente las peticiones del Browser   |
+| Manejo de Excepciones de request inválidos |  A  |El servidor es capaz de presentarle al cliente una imagen default al solicitarle una imagen que no existe   |
+| Respuesta del Server |  A  |Despliega la imagen solicitada de forma correcta en el browser   |
 
 
 ### Cliente ###
+| Característica  | Estado      |    Descripción       |
+| :------ | :------: | :----------- |
+| Levantamiento del Cliente | A    |Se logra crear el cliente el cuál envía peticiones   |
+| Envio de un request | A   |Se envia correctamente el request  |
+| Múltiples envíos de archivos | A   | Los archivos son enviados con éxito   |
+| Envio de un request | A   |Recibe exitosamente las peticiones del cliente |
+| Capacidad de salvar en disco la respuesta |  C  | Presenta problemas con archivos .png y .jpg grandes   |
+
 
 ## Lecciones Aprendidas  ##
 
