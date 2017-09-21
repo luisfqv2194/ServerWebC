@@ -13,8 +13,8 @@ Ivan Calvo -
 3. [Casos de Prueba](#casos-de-prueba)
 4. [Lecciones Aprendidas](#lecciones-aprendidas)
 5. [Compilación](#compilación)
-6. [Conclusiones](#conclusiones)
-  
+6. [Investigación](#investigación)
+7. [Conclusiones](#conclusiones)  
 
 ## ¿Qué es este proyecto?
 Se trata de 4 servidores implementados cada uno de diferente manera:
@@ -255,4 +255,6 @@ Ejemplo 2:
 
 **[nombre_archivos] = Nombre de los archivos que se desean utilizar, estos deben ir separados por comas**
 
+
+## Investigación ##
 ## Conclusiones ##
