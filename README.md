@@ -125,6 +125,7 @@ Fue el más complicado de todos debido a que se tuvo que optar por manejar cada 
 ### Servidor Thread ###
 Este servidor resulto muy similar al Fork y no fue tan compleja su implementación, a pesar que se tuvo que investigar como la librería pthread.h trabaja los hilos.
 
+
 ### Cliente ###
 El cliente presenta un problema a la hora de guardar archivos .png y los archivos .jpg grandes no se graban en el disco de forma completa, por todo lo demás el cliente funciona correctamente. 
 
