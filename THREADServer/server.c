@@ -131,7 +131,7 @@ void *ejecutarHilo(void *socket_desc){
             puts("Archivo no encontrado");
             f=fopen("404.jpg","r");
                     
-            sendData(bitmap, sizeChar, sock, tipoArchivo);
+            sendData(bitmap, sizeChar, sock, 4);
         }
 
         else

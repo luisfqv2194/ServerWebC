@@ -179,7 +179,7 @@ int main(int argc , char *argv[])
                     puts("Archivo no encontrado");
                     f=fopen("404.jpg","r");
                     
-                    sendData(bitmap, sizeChar, new_socket, tipoArchivo);
+                    sendData(bitmap, sizeChar, new_socket, 4);
                 }
 
                 else

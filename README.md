@@ -88,7 +88,7 @@ Se trata de 4 servidores implementados cada uno de diferente manera:
 | ./cliente 127.0.0.1 7000 texto1.txt | Archivo texto1.txt es guardado en la carpeta del Cliente    | Archivo texto1.txt es guardado en la carpeta del Cliente   |
 | ./cliente 127.0.0.1 7000 img1.jpg | Archivo img1.jpg es guardado en la carpeta del Cliente    | No todo el archivo img1.jpg es guardado en la carpeta del Cliente   |
 | ./cliente 127.0.0.1 7000 img4.jpg | Archivo img4.jpg es guardado en la carpeta del Cliente    | Archivo img4.jpg es guardado en la carpeta del Cliente   |
-| ./cliente 127.0.0.1 7000 img1.png | Archivo img1.png es guardado en la carpeta del Cliente    | El archivo img1.png no es guardado correctamente en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7000 img1.png | Archivo img1.png es guardado en la carpeta del Cliente    | No todo el archivo img1.png es guardado en la carpeta del Cliente   |
 | ./cliente 127.0.0.1 7000 img122.jpg | Archivo img122.jpg es guardado pero con una imagen de "File Not Found" en la carpeta del Cliente    | Archivo img122.jpg es guardado pero con una imagen de "File Not Found" en la carpeta del Cliente |
 | ./cliente 127.0.0.1 7000 html1.html,texto1.txt | Archivos html1.html y texto1.txt son guardados en la carpeta del Cliente    | Archivos html1.html y texto1.txt son guardados en la carpeta del Cliente |
 
@@ -111,7 +111,7 @@ Se trata de 4 servidores implementados cada uno de diferente manera:
 | ./cliente 127.0.0.1 7001 texto1.txt | Archivo texto1.txt es guardado en la carpeta del Cliente    | Archivo texto1.txt es guardado en la carpeta del Cliente   |
 | ./cliente 127.0.0.1 7001 img1.jpg | Archivo img1.jpg es guardado en la carpeta del Cliente    | No todo el archivo img1.jpg es guardado en la carpeta del Cliente   |
 | ./cliente 127.0.0.1 7001 img4.jpg | Archivo img4.jpg es guardado en la carpeta del Cliente    | Archivo img4.jpg es guardado en la carpeta del Cliente   |
-| ./cliente 127.0.0.1 7001 img1.png | Archivo img1.png es guardado en la carpeta del Cliente    | El archivo img1.png no es guardado correctamente en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7001 img1.png | Archivo img1.png es guardado en la carpeta del Cliente    | No todo el archivo img1.png es guardado en la carpeta del Cliente   |
 | ./cliente 127.0.0.1 7001 img122.jpg | Archivo img122.jpg es guardado pero con una imagen de "File Not Found" en la carpeta del Cliente    | Archivo img122.jpg es guardado pero con una imagen de "File Not Found" en la carpeta del Cliente |
 | ./cliente 127.0.0.1 7001 html1.html,texto1.txt | Archivos html1.html y texto1.txt son guardados en la carpeta del Cliente    | Archivos html1.html y texto1.txt son guardados en la carpeta del Cliente |
 
@@ -134,7 +134,7 @@ Se trata de 4 servidores implementados cada uno de diferente manera:
 | ./cliente 127.0.0.1 7002 texto1.txt | Archivo texto1.txt es guardado en la carpeta del Cliente    | Archivo texto1.txt es guardado en la carpeta del Cliente   |
 | ./cliente 127.0.0.1 7002 img1.jpg | Archivo img1.jpg es guardado en la carpeta del Cliente    | No todo el archivo img1.jpg es guardado en la carpeta del Cliente   |
 | ./cliente 127.0.0.1 7002 img4.jpg | Archivo img4.jpg es guardado en la carpeta del Cliente    | Archivo img4.jpg es guardado en la carpeta del Cliente   |
-| ./cliente 127.0.0.1 7002 img1.png | Archivo img1.png es guardado en la carpeta del Cliente    | El archivo img1.png no es guardado correctamente en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7002 img1.png | Archivo img1.png es guardado en la carpeta del Cliente    | No todo el archivo img1.png es guardado en la carpeta del Cliente   |
 | ./cliente 127.0.0.1 7002 img122.jpg | Archivo img122.jpg es guardado pero con una imagen de "File Not Found" en la carpeta del Cliente    | Archivo img122.jpg es guardado pero con una imagen de "File Not Found" en la carpeta del Cliente |
 | ./cliente 127.0.0.1 7002 html1.html,texto1.txt | Archivos html1.html y texto1.txt son guardados en la carpeta del Cliente    | Archivos html1.html y texto1.txt son guardados en la carpeta del Cliente |
 
@@ -157,7 +157,7 @@ Se trata de 4 servidores implementados cada uno de diferente manera:
 | ./cliente 127.0.0.1 7003 texto1.txt | Archivo texto1.txt es guardado en la carpeta del Cliente    | Archivo texto1.txt es guardado en la carpeta del Cliente   |
 | ./cliente 127.0.0.1 7003 img1.jpg | Archivo img1.jpg es guardado en la carpeta del Cliente    | No todo el archivo img1.jpg es guardado en la carpeta del Cliente   |
 | ./cliente 127.0.0.1 7003 img4.jpg | Archivo img4.jpg es guardado en la carpeta del Cliente    | Archivo img4.jpg es guardado en la carpeta del Cliente   |
-| ./cliente 127.0.0.1 7003 img1.png | Archivo img1.png es guardado en la carpeta del Cliente    | El archivo img1.png no es guardado correctamente en la carpeta del Cliente   |
+| ./cliente 127.0.0.1 7003 img1.png | Archivo img1.png es guardado en la carpeta del Cliente    | No todo el archivo img1.png es guardado en la carpeta del Cliente   |
 | ./cliente 127.0.0.1 7003 img122.jpg | Archivo img122.jpg es guardado pero con una imagen de "File Not Found" en la carpeta del Cliente    | Archivo img122.jpg es guardado pero con una imagen de "File Not Found" en la carpeta del Cliente |
 | ./cliente 127.0.0.1 7003 html1.html,texto1.txt | Archivos html1.html y texto1.txt son guardados en la carpeta del Cliente    | Archivos html1.html y texto1.txt son guardados en la carpeta del Cliente |
 

@@ -9,7 +9,46 @@
 char *IPDir;
 char *serverPort;
 char *files;
+int tipoArchivo;
 void *ejecutarHilo(void *);
+
+int splitFileName (char fileName[],int numbytes){
+
+    int tipo = -1;
+
+    char* fileNameCopy = malloc(numbytes * sizeof(char));
+
+    strcpy(fileNameCopy,fileName);
+    // Returns first token 
+    char *token = strtok(fileNameCopy, ".");
+   
+    // Keep printing tokens while one of the
+    // delimiters present in str[].
+    token = strtok(NULL, ".");
+    if (token!=NULL)
+    {
+        printf("El token luego del split es: %s\n", token);
+        if (strcmp(token,"txt") == 0)
+        {
+            tipo = 1;
+        }
+        else if (strcmp(token,"html") == 0)
+        {
+            tipo = 2;
+        }
+        else if (strcmp(token,"png") == 0)
+        {
+            tipo = 3;
+        }
+        else if (strcmp(token,"jpg") == 0)
+        {
+            tipo = 4;
+        }
+        
+    }
+    free(fileNameCopy);
+    return tipo;
+}
 
 int main(int argc , char *argv[])
 {
@@ -35,6 +74,7 @@ int main(int argc , char *argv[])
         
         copiaMalloc=(char*)malloc(1);
         strncpy(copiaMalloc,token,strlen(token));
+        tipoArchivo = splitFileName(copiaMalloc,sizeof(char));
         puts("Nombre del archivo a utilizar");
         puts(copiaMalloc);
         valorHilo=pthread_create( &hiloActual , NULL ,  ejecutarHilo , (void*) copiaMalloc);
@@ -91,19 +131,41 @@ void *ejecutarHilo(void *fileName){
     }
     puts("Data Send\n");
     sleep(5);
-    tamanoreciv = read(socket_desc, server_reply , 50000000);
+    tamanoreciv = recv(socket_desc, server_reply , 50000000,0);
     if( tamanoreciv < 0)
     {
         puts("recv failed");
     }
-    ptrserver_reply = &server_reply[75];
-    
-    //concatenar el nombre de la imagen solicitada
+
+    if (tipoArchivo == 1 || tipoArchivo == 2 || tipoArchivo == 4)
+    {
+        ptrserver_reply = &server_reply[75];
+        //concatenar el nombre de la imagen solicitada
     snprintf(pfileName, sizeof pfileName, "%s", parametroFile);
     
     FILE *f;
     f = fopen(pfileName,"w");
     fwrite(ptrserver_reply,tamanoreciv-75,1,f);
     fclose(f);
+    f = fopen("file.jpg","w");
+    fwrite(ptrserver_reply,tamanoreciv-75,1,f);
+    fclose(f);
+    }
+    else
+    {
+        ptrserver_reply = &server_reply[74];
+        //concatenar el nombre de la imagen solicitada
+    snprintf(pfileName, sizeof pfileName, "%s", parametroFile);
+    
+    FILE *f;
+    f = fopen(pfileName,"w");
+    fwrite(ptrserver_reply,tamanoreciv-74,1,f);
+    fclose(f);
+    f = fopen("file.jpg","w");
+    fwrite(ptrserver_reply,tamanoreciv-74,1,f);
+    fclose(f);
+    }
+    
+    
     
 }
