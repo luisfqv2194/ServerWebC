@@ -91,7 +91,7 @@ void *ejecutarHilo(void *fileName){
     }
     puts("Data Send\n");
     sleep(5);
-    tamanoreciv = recv(socket_desc, server_reply , 5000000 , 0);
+    tamanoreciv = read(socket_desc, server_reply , 50000000);
     if( tamanoreciv < 0)
     {
         puts("recv failed");
