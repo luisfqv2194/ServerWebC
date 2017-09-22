@@ -257,4 +257,14 @@ Ejemplo 2:
 
 
 ## Investigación ##
+Actualmente, C pose 3 librerías con las cuales se pueden manejar hilos:
+
+* thread.h
+
+* treads.h
+
+* pthread.h
+
+La librería usada para el manejo de threads en este Proyecto fue __pthread.h__ a cual no es una librería propia de C, sino es una librería de __POSIX__
+
 ## Conclusiones ##
