@@ -4,7 +4,7 @@
 
 Luis Quirós - 201237264
 
-Ivan Calvo - 
+Ivan Calvo - 2015053083
 
 
 # Índice
@@ -193,7 +193,7 @@ El cliente presenta un problema a la hora de guardar archivos .png y los archivo
 
 ## Compilación ##
 ### Servidor FIFO ###
-Acceder, mediante la consola de linux, a la carpeta FIFOserver y digitar el siguiente código de compilación:
+Acceder, mediante la consola de linux, a la carpeta FIFOServer y digitar el siguiente código de compilación:
 
 >gcc -o server server.c
 
@@ -204,7 +204,7 @@ Y para correr basta con escribir:
 **NOTA: El servidor corre en el puerto 7000.**
 
 ### Servidor Fork ###
-Acceder, mediante la consola de linux, a la carpeta FORKserver y digitar el siguiente código de compilación:
+Acceder, mediante la consola de linux, a la carpeta FORKServer y digitar el siguiente código de compilación:
 
 >gcc -o server server.c
 
@@ -215,7 +215,7 @@ Y para correr basta con escribir:
 **NOTA: El servidor corre en el puerto 7001.**
 
 ### Servidor Pre-Thread ###
-Acceder, mediante la consola de linux, a la carpeta THREADserver y digitar el siguiente código de compilación:
+Acceder, mediante la consola de linux, a la carpeta THREADServer y digitar el siguiente código de compilación:
 
 >gcc -o server server.c -pthread
 
@@ -226,7 +226,7 @@ Y para correr basta con escribir:
 **NOTA: El servidor corre en el puerto 7002.**
 
 ### Servidor Thread ###
-Acceder, mediante la consola de linux, a la carpeta THREADserver y digitar el siguiente código de compilación:
+Acceder, mediante la consola de linux, a la carpeta THREADServer y digitar el siguiente código de compilación:
 
 >gcc -o server server.c -pthread
 
@@ -257,7 +257,7 @@ Ejemplo 2:
 
 
 ## Investigación ##
-Actualmente, C pose 3 librerías con las cuales se pueden manejar hilos:
+Actualmente, C pose 3 librerías con las cuales se pueden manejar hilos:
 
 * thread.h
 
@@ -265,6 +265,17 @@ Actualmente, C pose 3 librerías con las cuales se pueden manejar hilos:
 
 * pthread.h
 
-La librería usada para el manejo de threads en este Proyecto fue __pthread.h__ a cual no es una librería propia de C, sino es una librería de __POSIX__
+La librería usada para el manejo de threads en este Proyecto fue __pthread.h__ a cual no es una librería propia de C, sino es una librería de __POSIX__ (_Portable_ _Operating_ _System_ _Intergace_ _for_ _UNIX_) la cuál es una superlibrería creada para facilitar el código multi- plataforma entre diferentes sistemas operativos.
+
+La selección de la librería adecuada para un software depende mucho del propósito del programa, si es un programa el cuál se usará en diferentes sistemas y es multi- plataforma, se recomienda usar __pthread.h__ ya que POSIX lo facilita, por otra parte, si se teme por problemas de incompatibilidad, deprecación u otros similares, se recomienda usar __thread.h o threads.h__ ya que son propias de C.
 
 ## Conclusiones ##
+El Proyecto es buen ejemplo para ver los diferentes tipos de manejo que se le puede dar a un problema específico en el desarrollo de software, en este caso con las peticiones, se puso en práctica el aprovechamiento de recursos, manejo de hilos y procesos en el lenguaje C y las diferentes librerías que posee.
+
+Una de las principales conclusions del Proyecto es que los hilos y forks funcionan mejor o peor dependiendo de la cantidad de solicitudes que reciban:
+
+### Caso 1: Una o pocas peticiones cada cierto tiempo ###
+En este caso, es más rentable manejarlo de forma FIFO, ya que no se desperdician recursos creando procesos o hilos.
+
+### Caso 2: Demasiadas peticiones cada cierto tiempo ###
+En este caso si es mejor manejarlo con FORK, THREAD o P_THREADS ya que el manejo de peticiones es asignado a un proceso o hilo y el hilo principal del programa solo se encargaría de recibir peticiones y encargárselas a estos.
